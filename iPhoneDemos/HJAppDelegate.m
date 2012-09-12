@@ -22,8 +22,10 @@
 //    } else {
 //        self.viewController = [[HJViewController alloc] initWithNibName:@"HJViewController_iPad" bundle:nil];
 //    }
+
     HJTableViewController *viewController = [[HJTableViewController alloc]initWithJsonFile:@"demo"];
-    self.window.rootViewController = viewController;
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:viewController];    
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;
 }

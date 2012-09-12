@@ -15,6 +15,7 @@
 		74749D9A16005993009927F2 /* NSObject+Subscripts.m in Sources */ = {isa = PBXBuildFile; fileRef = 74749D9916005993009927F2 /* NSObject+Subscripts.m */; };
 		74749D9D16005A93009927F2 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 74749D9C16005A93009927F2 /* demo.json */; };
 		74749D9F16005C4E009927F2 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 74749D9E16005C4E009927F2 /* avatar.png */; };
+		74749DA21600869A009927F2 /* CoreTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74749DA11600869A009927F2 /* CoreTextViewController.m */; };
 		74C9C03615EB6C230012C910 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C9C03515EB6C230012C910 /* UIKit.framework */; };
 		74C9C03815EB6C230012C910 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C9C03715EB6C230012C910 /* Foundation.framework */; };
 		74C9C03A15EB6C230012C910 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C9C03915EB6C230012C910 /* CoreGraphics.framework */; };
@@ -36,6 +37,8 @@
 		74749D9916005993009927F2 /* NSObject+Subscripts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Subscripts.m"; sourceTree = "<group>"; };
 		74749D9C16005A93009927F2 /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
 		74749D9E16005C4E009927F2 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
+		74749DA01600869A009927F2 /* CoreTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextViewController.h; sourceTree = "<group>"; };
+		74749DA11600869A009927F2 /* CoreTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextViewController.m; sourceTree = "<group>"; };
 		74C9C03115EB6C230012C910 /* iPhoneDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74C9C03515EB6C230012C910 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74C9C03715EB6C230012C910 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -117,6 +120,8 @@
 				74C9C05515EB6CF80012C910 /* TableView */,
 				74C9C04415EB6C230012C910 /* HJAppDelegate.h */,
 				74C9C04515EB6C230012C910 /* HJAppDelegate.m */,
+				74749DA01600869A009927F2 /* CoreTextViewController.h */,
+				74749DA11600869A009927F2 /* CoreTextViewController.m */,
 				74C9C03C15EB6C230012C910 /* Supporting Files */,
 			);
 			path = iPhoneDemos;
@@ -219,6 +224,7 @@
 				74749D8E16005839009927F2 /* HJTableViewCell.m in Sources */,
 				74749D95160058E1009927F2 /* JSONKit.m in Sources */,
 				74749D9A16005993009927F2 /* NSObject+Subscripts.m in Sources */,
+				74749DA21600869A009927F2 /* CoreTextViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

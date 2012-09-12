@@ -35,6 +35,10 @@
     {
         
         self.jsonRoot = (NSDictionary *)[jsonData objectFromJSONData];
+//        for (NSString *row in [self.jsonRoot[@"sections"]allKeys]) {
+//            NSLog(@"%@",row);
+//        }
+//        NSLog(@"%@",self.jsonRoot);
         /*
          NSString *jsonString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
          jsonRoot = (NSDictionary *) [jsonString objectFromJSONString];
@@ -170,16 +174,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    HJTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell==nil)
     {
         cell = [[HJTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-
-        if (self.targetControllerName == nil) {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }else{
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
         cell.selectionStyle = UITableViewCellEditingStyleNone;
         //cell.userInteractionEnabled = NO;
     }
@@ -189,6 +187,14 @@
     
     cell.textLabel.text = (NSString *)[cellData objectForKey:@"title"];
     cell.detailTextLabel.text = (NSString *)[cellData objectForKey:@"subtitle"];
+    cell.actionController = (NSString *)[cellData objectForKey:@"action"];
+
+    if (cell.actionController==nil) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
     
     // Configure the cell...
     NSString *base64String = (NSString *)[cellData objectForKey:@"image"];
@@ -268,21 +274,22 @@
 //    Class controllerClass = NSClassFromString(self.controllerName);
 //    id view = [[controllerClass alloc]initWithStyle:UITableViewStylePlain];
     
-    if (self.targetControllerName == nil) {
-        return ;
-    }
     
-    id view=[[NSClassFromString(self.targetControllerName) alloc] initWithStyle:UITableViewStylePlain];
+    HJTableViewCell *cell = (HJTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    id controller =[[NSClassFromString(cell.actionController) alloc] init];
 
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if([view respondsToSelector:@selector(setTrackId:)])
-    {
-        [view performSelector:@selector(setTrackId:) withObject:@(cell.tag)];
-    }
-    //[view setTrackId:cell.tag];
-    [view setTitle:cell.textLabel.text];
     
-    [self.navigationController pushViewController:view animated:YES];
+//    if([view respondsToSelector:@selector(setTrackId:)])
+//    {
+//        [view performSelector:@selector(setTrackId:) withObject:@(cell.tag)];
+//    }
+    //[view setTrackId:cell.tag];
+    if(controller==nil)
+        return ;
+    [controller setTitle:cell.textLabel.text];
+    
+    [self.navigationController pushViewController:controller animated:YES];
 
 }
 

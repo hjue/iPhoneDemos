@@ -10,4 +10,6 @@
 
 @interface HJTableViewCell : UITableViewCell
 
+@property (nonatomic,retain) NSString *actionController;
+
 @end

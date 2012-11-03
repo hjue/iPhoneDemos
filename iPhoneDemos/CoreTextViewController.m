@@ -7,6 +7,7 @@
 //
 
 #import "CoreTextViewController.h"
+#import "CTView.h"
 
 @interface CoreTextViewController ()
 
@@ -19,9 +20,31 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+
     }
     return self;
 }
+
+- (void)loadView
+{
+    [super loadView];
+    
+    CGRect area = [self.view bounds];
+    CTView *view = [[CTView alloc]initWithFrame:area];
+
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"article" ofType:@"txt"];
+    NSString* text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    
+    
+    NSAttributedString* attString = [[NSAttributedString alloc]initWithString:text ];
+    view.attString = attString;
+    [view  buildFrames];
+    
+    [view  setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:view];
+
+}
+
 
 - (void)viewDidLoad
 {

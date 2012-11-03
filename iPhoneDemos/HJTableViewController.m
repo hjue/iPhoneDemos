@@ -5,7 +5,7 @@
 //  Created by Yu Hao on 12-7-18.
 //  Copyright (c) 2012年 CSDN.net. All rights reserved.
 //
-
+#import <Social/Social.h>
 #import "HJTableViewController.h"
 #import "JSONKit.h"
 #import "HJTableViewCell.h"
@@ -83,6 +83,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)viewDidUnload
